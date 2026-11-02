@@ -22,27 +22,52 @@
         </p>
     </div>
 
-    <!-- Search and filter -->
-    <div class="row g-2 mb-4">
-        <div class="col-12 col-md-8">
-            <input
-                type="search"
-                class="form-control"
-                placeholder="Search projects by name or location"
-                aria-label="Search projects">
-        </div>
+    <form method="GET" class="row g-2 mb-4">
 
-        <div class="col-12 col-md-4">
-            <select class="form-select" aria-label="Filter projects by status">
-                <option value="">All statuses</option>
-                <option value="PLANNING">Planning</option>
-                <option value="ONGOING">Ongoing</option>
-                <option value="SUSPENDED">Suspended</option>
-                <option value="COMPLETED">Completed</option>
-            </select>
-        </div>
+    <div class="col-12 col-md-8">
+        <input
+            type="search"
+            name="q"
+            class="form-control"
+            placeholder="Search projects by name or location"
+            value="{{ search_query }}">
     </div>
 
+    <div class="col-12 col-md-3">
+        <select name="status" class="form-select">
+
+            <option value="">All statuses</option>
+
+            <option value="PLANNING"
+                {% if selected_status == "PLANNING" %}selected{% endif %}>
+                Planning
+            </option>
+
+            <option value="ONGOING"
+                {% if selected_status == "ONGOING" %}selected{% endif %}>
+                Ongoing
+            </option>
+
+            <option value="SUSPENDED"
+                {% if selected_status == "SUSPENDED" %}selected{% endif %}>
+                Suspended
+            </option>
+
+            <option value="COMPLETED"
+                {% if selected_status == "COMPLETED" %}selected{% endif %}>
+                Completed
+            </option>
+
+        </select>
+    </div>
+
+    <div class="col-12 col-md-auto">
+        <button type="submit" class="btn btn-success w-100">
+            Search
+        </button>
+    </div>
+
+</form>
     <!-- Project cards -->
     <div class="row g-4 row-cols-1 row-cols-md-2 row-cols-lg-3">
 
