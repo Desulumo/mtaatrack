@@ -1,0 +1,89 @@
+<style>
+  .mt-footer {
+    background: #343a40;
+    color: #f8f9fa;
+  }
+
+  .mt-footer a {
+    color: #ced4da;
+    text-decoration: none;
+  }
+
+  .mt-footer a:hover {
+    color: #ffffff;
+    text-decoration: underline;
+  }
+
+  /* Let long words such as emails wrap instead of overflowing */
+  .mt-footer li,
+  .mt-footer p,
+  .mt-footer a {
+    overflow-wrap: anywhere;
+  }
+</style>
+
+<footer class="mt-footer pt-4 pb-3">
+  <div class="container-fluid px-3 px-md-4">
+
+    <div class="row g-4">
+
+      <!-- About -->
+      <div class="col-12 col-md-5">
+        <h2 class="h6">MtaaTrack</h2>
+        <p class="small mb-0">
+          A project monitoring system designed to help track
+          development projects and follow their progress in our communities.
+        </p>
+      </div>
+
+      <!-- Quick links -->
+      <div class="col-12 col-sm-6 col-md-3">
+        <h2 class="h6">Quick Links</h2>
+        <ul class="list-unstyled small mb-0">
+          <li><a href="{% url 'index' %}">Home</a></li>
+          <li><a href="#">Projects</a></li>
+          <li><a href="#">Project Progress</a></li>
+          <li><a href="#">Login</a></li>
+        </ul>
+      </div>
+
+      <!-- Contact -->
+      <div class="col-12 col-sm-6 col-md-4">
+        <h2 class="h6">Contact</h2>
+        <ul class="list-unstyled small mb-0">
+          <li>Email:
+            <a href="mailto:mathiasdeogratius@proton.me">mathiasdeogratius@proton.me</a>
+          </li>
+          <li>Phone:
+            <a href="tel:+255613005004">+255 613 005 004</a>
+          </li>
+          <li>Tanzania</li>
+        </ul>
+      </div>
+
+    </div>
+
+    <hr class="my-3 border-light opacity-25">
+
+    <!-- Educational disclaimer -->
+    <div class="text-center mb-3">
+      <p class="small mb-0">
+        <strong>Disclaimer:</strong>
+        MtaaTrack is an educational and portfolio project developed
+        for learning and demonstration purposes. It is not an official
+        government system and is not affiliated with or endorsed by
+        any government institution.
+      </p>
+    </div>
+
+    <!-- Developer credit -->
+    <p class="small text-center mb-1">
+      Developed by <strong>Deogratius Mathias Sulumo</strong>
+    </p>
+
+    <p class="small text-center mb-0 text-white-50">
+      &copy; {% now "Y" %} MtaaTrack. All rights reserved.
+    </p>
+
+  </div>
+</footer>

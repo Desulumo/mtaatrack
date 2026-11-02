@@ -1,0 +1,94 @@
+{% load static %}
+
+<style>
+  .mt-nav {
+    background-color: #343a40;
+    padding: 12px 0;
+  }
+
+  .mt-nav .navbar-brand {
+    color: #fff;
+    font-size: 1.25rem;
+    letter-spacing: 0.3px;
+  }
+
+  .mt-nav .navbar-brand:hover {
+    color: #fff;
+  }
+
+  .mt-nav .nav-link {
+    color: #ced4da;
+    font-size: 0.95rem;
+    padding: 8px 14px;
+    transition: color 0.2s ease;
+  }
+
+  .mt-nav .nav-link:hover {
+    color: #fff;
+  }
+
+  .mt-nav .nav-link:focus-visible,
+  .mt-nav .navbar-brand:focus-visible {
+    outline: 2px solid #fff;
+    outline-offset: 3px;
+  }
+
+  .mt-nav .auth-btn {
+    border-radius: 5px;
+    padding: 7px 18px;
+    font-size: 0.9rem;
+  }
+</style>
+
+<nav class="navbar navbar-dark mt-nav">
+  <div class="container-fluid px-3 px-md-4">
+
+    <!-- Brand -->
+    <a class="navbar-brand d-flex align-items-center mb-0"
+       href="{% url 'index' %}">
+
+      <img src="{% static 'images/logo.jpg' %}"
+           alt="MtaaTrack logo"
+           width="36"
+           height="36"
+           class="me-2 rounded">
+
+      <strong>MtaaTrack</strong>
+    </a>
+
+    <!-- Navigation links and authentication -->
+    <div class="d-flex align-items-center flex-wrap gap-2">
+
+      <a class="nav-link" href="{% url 'index' %}">
+        Home
+      </a>
+
+      <a class="nav-link" href="#">
+        Projects
+      </a>
+
+      <a class="nav-link" href="#">
+        Project Progress
+      </a>
+
+      {% comment %} {% if user.is_authenticated %}
+
+        <form method="post" action="{% url 'logout' %}" class="ms-2">
+          {% csrf_token %}
+          <button type="submit" class="btn btn-outline-light auth-btn">
+            Logout
+          </button>
+        </form>
+
+      {% else %}
+
+        <a href="{% url 'login' %}"
+           class="btn btn-outline-light auth-btn ms-2">
+          Login
+        </a>
+
+      {% endif %} {% endcomment %}
+
+    </div>
+  </div>
+</nav>
