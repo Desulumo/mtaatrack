@@ -1,4 +1,4 @@
-from django.views.generic import ListView
+from django.views.generic import ListView,DetailView
 from django.db.models import Q
 from .models import Project
 
@@ -10,7 +10,7 @@ class ProjectListView(ListView):
 
     def get_queryset(self):
         queryset = Project.objects.filter(
-            approvals__decision="APPROVED"
+            is_public=True
         ).select_related(
             "ward"
         ).distinct().order_by("-created_at")
@@ -39,3 +39,11 @@ class ProjectListView(ListView):
         context["selected_status"] = self.request.GET.get("status", "")
 
         return context
+
+class ProjectDetailView(DetailView):
+    model=Project
+    template_name="projects/project_details.html"
+    context_object_name="project"
+
+    def get_queryset(self):
+        return Project.objects.filter(is_public=True).select_related("ward")

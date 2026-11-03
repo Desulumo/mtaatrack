@@ -19,7 +19,9 @@ class Project(models.Model):
     status=models.CharField(max_length=20, choices=Status.choices, default=Status.PLANNING)
     created_at=models.DateTimeField(auto_now=True)
     updated_at=models.DateTimeField(auto_now=True)
+    is_public = models.BooleanField(default=False)
     created_by = models.ForeignKey(settings.AUTH_USER_MODEL,on_delete=models.PROTECT,related_name="created_projects")
+    
     def __str__(self):
         return self.name
 
